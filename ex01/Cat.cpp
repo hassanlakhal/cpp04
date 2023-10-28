@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:08:59 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/27 16:32:42 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:01:44 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ Cat::Cat():Animal("Cat")
 Cat::~Cat()
 {
 }
+
+
+Cat::Cat(Brain *b)
+{
+    this->ideas = b;
+}  
 
 void Cat::makeSound() const
 {

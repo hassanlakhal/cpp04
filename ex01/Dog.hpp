@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:21:21 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/27 17:43:27 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:28:23 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include"Animal.hpp"
 #include"Brain.hpp"
 
-class Dog:public Animal
+class Dog:virtual public Animal
 {
     private:
         Brain* ideas;
@@ -24,6 +24,10 @@ class Dog:public Animal
         Dog();
         ~Dog();
         void makeSound() const;
+        Brain* getBrain()
+        {
+            return (ideas);
+        }
 };
 
 #endif
