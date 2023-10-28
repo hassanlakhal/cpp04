@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:21:21 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/27 19:28:23 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:51:08 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ class Dog:virtual public Animal
         Brain* ideas;
     public:
         Dog();
+        Dog(Brain *b);
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
         ~Dog();
         void makeSound() const;
-        Brain* getBrain()
-        {
-            return (ideas);
-        }
+        const Brain& getBrain() const;
 };
 
 #endif
