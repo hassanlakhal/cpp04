@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:09:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/28 23:52:22 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main()
 {
-    Animal *animal[4];
+    Animal *Animal[4];
     //Brain *a = new Brain;
     int i;
     i = 0;
@@ -33,16 +33,16 @@ int main()
     while (i < 4)
     {
         if (i % 2 == 0)
-          animal[i] = new Dog();
+          Animal[i] = new Dog();
         else
-            animal[i] = new Cat();
+            Animal[i] = new Cat();
         i++;
     }
     // std::cout << a->getIdea(2)<< std::endl;
     i = 0;
     while (i < 4)
     {
-        delete animal[i];
+        delete Animal[i];
         i++;
     }
     return 0;

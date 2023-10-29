@@ -6,12 +6,12 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:08:56 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/26 23:03:38 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef Animal_HPP
+#define Animal_HPP
 
 #include<iostream>
 

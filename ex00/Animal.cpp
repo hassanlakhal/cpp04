@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:08:52 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/26 22:59:38 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ const std::string& Animal::getType() const
 }
 void Animal::makeSound() const
 {
-    std::cout << "Generic animal sound" << std::endl;
+    std::cout << "Generic Animal sound" << std::endl;
 }
