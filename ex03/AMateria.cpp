@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:54:07 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/29 23:22:40 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/30 15:22:29 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "* shoots an ice bolt at" << target.type << "*" << std::endl; 
+    (void) target;
+    std::cout << " not define " << std::endl; 
 }
