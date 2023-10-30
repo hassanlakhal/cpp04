@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/10/29 16:56:57 by hlakhal-          #+#    #+#              #
+#    Updated: 2023/10/29 18:39:15 by hlakhal-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = A_animal
+
+SRC = main.cpp  AMateria.cpp  Cure.cpp Ice.cpp  
+
+HDR =  AMateria.hpp  Cure.hpp Ice.hpp 
+CXXFLAGS = -Wall -Wextra -Werror
+
+CXX = c++ -std=c++98
+
+all: $(NAME)
+
+OBJ = $(SRC:.cpp=.o)
+
+$(NAME): $(OBJ) $(HDR)
+		$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
+
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all

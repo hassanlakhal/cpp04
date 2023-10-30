@@ -62,7 +62,8 @@
         "vector": "cpp"
     },
     "cSpell.words": [
-        "MYAWMYAW"
+        "MYAWMYAW",
+        "unequip"
     ],
     "C_Cpp.dimInactiveRegions": false
 }
