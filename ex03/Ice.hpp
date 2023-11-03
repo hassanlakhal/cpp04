@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:02:12 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/30 19:10:39 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/02 20:28:04 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ private:
     
 public:
     Ice();
-    Ice(Ice& other);
+    Ice(const Ice& other);
     Ice& operator=(const Ice& other);
     void setType(const std::string& type);
     const std::string& getTypeIce() const;

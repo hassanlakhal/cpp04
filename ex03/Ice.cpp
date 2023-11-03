@@ -6,19 +6,19 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:02:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/30 20:46:48 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 02:22:56 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Ice.hpp"
 
-Ice::Ice()
+Ice::Ice():AMateria("ice")
 {
-    this->type = "ice";
 }
 
 Ice::~Ice()
 {
+    
 }
 void Ice::setType(const std::string& type)
 {
@@ -30,10 +30,22 @@ const std::string& Ice::getTypeIce() const
     return type;
 }
 
+Ice::Ice(const Ice& other)
+{
+    this->type = other.type;
+}
+
+Ice& Ice::operator=(const Ice& other)
+{
+    if(this == &other)
+        return *this;
+    type = other.type;
+    return *this;
+}
+
 AMateria* Ice::clone() const
 {
-    AMateria *newType = new Ice;
-    return newType;   
+    return new Ice(*this);   
 }
 
 void Ice::use(ICharacter& target)

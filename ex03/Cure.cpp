@@ -6,19 +6,33 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:02:03 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/30 20:37:56 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 02:29:21 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Cure.hpp"
 
-Cure::Cure()
+Cure::Cure():AMateria("cure")
 {
-    this->type = "cure";
+   
 }
 
 Cure::~Cure()
 {
+    
+}
+
+Cure::Cure(const Cure& other)
+{
+    this->type = other.type;
+}
+
+Cure& Cure::operator=(const Cure& other)
+{
+    if(this == &other)
+        return *this;
+    type = other.type;
+    return *this;
 }
 
 void Cure::setType(std::string& type)
@@ -33,8 +47,7 @@ const std::string& Cure::getType() const
 
 AMateria* Cure::clone() const
 {
-    AMateria *newType = new Cure();
-    return newType;   
+    return new Cure(*this);   
 }
 
 void Cure::use(ICharacter& target)

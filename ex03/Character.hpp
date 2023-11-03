@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:02 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/30 18:16:59 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 03:28:59 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ private:
 public:
     Character();
     Character(const std::string& name);
+    Character(const Character& other);
+    Character& operator=(const Character& other);
     std::string const & getName() const;
     void equip(AMateria* m);
     void unequip(int idx);
