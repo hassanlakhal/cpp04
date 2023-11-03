@@ -6,11 +6,14 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 17:12:15 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:39:33 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Character.hpp"
+
+int Character::ind = 0;
+AMateria *Character::invDelete[] = {NULL};
 
 Character::Character()
 {
@@ -63,6 +66,8 @@ Character::~Character()
 {
     for (int i = 0; i < 4; ++i)
         delete inventory[i];
+    for (int i = 0; i < 4; ++i)
+        delete inventoryDelete[i];
 }
 
 void Character::equip(AMateria* m)
@@ -75,12 +80,21 @@ void Character::equip(AMateria* m)
             return ;
         }
     }
+    invDelete[Character::ind] = m;
+    Character::ind++;
+    std::cout << "Full inventory\n";
 }
 
 void Character::unequip(int idx)
 {
     if (idx >= 0 && idx < 4 && inventory[idx])
+    {
+        inventoryDelete[idx] = inventory[idx];
         inventory[idx] = NULL;
+    }  
+    else if (idx >= 4 || idx < 0 || inventory[idx] == NULL)
+        std::cout << "Materia not exist\n";
+        
 }
 
 void Character::use(int idx, ICharacter& target)

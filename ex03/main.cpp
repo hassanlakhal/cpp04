@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:54:32 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 06:17:29 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:42:28 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,42 @@
 
 int main1()
 {
-    IMateriaSource* src = new MateriaSource();
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
-    src->learnMateria(new Cure());
-    src->learnMateria(new Cure()); // leaks here
-    src->learnMateria(new Ice());
-    ICharacter* me = new Character("me");
-    AMateria* tmp;
-    tmp = src->createMateria("cure");
-    delete tmp;
-    tmp = new Ice();
-    AMateria* tmp1(tmp);
-    std::cout << tmp << std::endl;
-    me->equip(tmp->clone());
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-     ICharacter* bob1 = new Character("bob10");
-    me->use(0, *bob1);
-    ICharacter* bob = new Character("bob");
-    me->use(1, *bob);
-    delete bob;
-     delete bob1;
-    delete me;
-    delete src;
-    delete tmp1;
-    return 0;
+        ICharacter *player = new Character("Kratos");
+
+        player->equip(new Ice());
+        player->equip(new Cure());
+        player->equip(new Cure());
+        player->equip(new Ice());
+
+        
+        player->use(0, *player);
+        player->use(1, *player);
+
+        player->equip(new Cure()); 
+        player->equip(new Cure());
+        player->equip(new Cure());// must print Full inventory
+        player->equip(new Cure());
+        player->equip(new Cure());
+        player->equip(new Cure());
+        player->equip(new Cure());
+
+         player->use(2, *player);
+        player->use(3, *player);
+
+        player->unequip(0);
+        player->unequip(1);
+        player->unequip(2);
+        player->unequip(3);
+        player->unequip(4);
+         player->use(4, *player);
+        player->use(5, *player); // here 
+        // player->unequip(4); // materia not found
+
+        delete player;
+        return 0;
 }
 int main()
 {
     main1();
-    system("leaks A_animal");
+    // system("leaks A_animal");
 }
