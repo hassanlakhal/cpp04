@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:02:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 17:45:37 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:54:18 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ Ice::~Ice()
 void Ice::setType(const std::string& type)
 {
     this->type = type;
-}
-
-const std::string& Ice::getTypeIce() const
-{
-    return type;
 }
 
 Ice::Ice(const Ice& other)
