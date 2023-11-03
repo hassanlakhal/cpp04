@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:54:07 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/02 20:29:58 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 06:16:35 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ AMateria::~AMateria()
 AMateria::AMateria(const AMateria& other)
 {
     this->type = other.type;
+    std::cout << "copy test :\n";
 }
 
 AMateria& AMateria::operator=(const AMateria& other)

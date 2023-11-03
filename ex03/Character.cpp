@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 03:30:03 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:12:15 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ Character::Character()
     {
         inventory[i] = NULL;
     }
-    // for (int i = 0; i < 4; i++)
-    // {
-    //     inventoryDelete[i] = NULL;
-    // }  
 }
 
 Character::Character(const std::string& name):name(name)
@@ -30,21 +26,15 @@ Character::Character(const std::string& name):name(name)
     for (int i = 0; i < 4; i++)
     {
         inventory[i] = NULL;
-    }
-    // for (int i = 0; i < 4; i++)
-    // {
-    //     inventoryDelete[i] = NULL;
-    // }  
+    } 
 }
 
 Character::Character(const Character& other):name(other.name)
 {
     for (int i = 0; i < 4; i++)
     {
-       if (other.inventory[i] != NULL) 
-       {
+       if (other.inventory[i]) 
             this->inventory[i] = other.inventory[i]->clone();
-       }
        else
          this->inventory[i] =  NULL;
     }
@@ -61,10 +51,8 @@ Character& Character::operator=(const Character& other)
     }
     for (int i = 0; i < 4; i++)
     {
-       if (other.inventory[i] != NULL) 
-       {
+       if (other.inventory[i]) 
             this->inventory[i] = other.inventory[i]->clone();
-       }
        else
            this->inventory[i] = NULL;  
     }
@@ -74,16 +62,14 @@ Character& Character::operator=(const Character& other)
 Character::~Character()
 {
     for (int i = 0; i < 4; ++i)
-    {
         delete inventory[i];
-    }
 }
 
 void Character::equip(AMateria* m)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (inventory[i] == NULL)
+        if (!inventory[i])
         {
             inventory[i] = m;
             return ;
@@ -93,18 +79,14 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if (idx >= 0 && idx < 4 && inventory[idx] != NULL)
-    {
+    if (idx >= 0 && idx < 4 && inventory[idx])
         inventory[idx] = NULL;
-    }
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx >= 0 && idx < 4 && inventory[idx] != NULL)
-    {
+    if (idx >= 0 && idx < 4 && inventory[idx])
         inventory[idx]->use(target);
-    }
 }
 
 std::string const & Character::getName() const

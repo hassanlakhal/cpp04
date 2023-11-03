@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:24:58 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 05:09:31 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:13:35 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ MateriaSource::~MateriaSource()
     
     for (int i = 0; i < 4; i++)
     {
-        if(inventory[i] != NULL)
+        if(inventory[i])
         {
             delete inventory[i];
             inventory[i] = NULL;
@@ -40,7 +40,7 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (other.inventory[i] != NULL)
+        if (other.inventory[i])
         {
             inventory[i] = other.inventory[i]->clone();
         }
@@ -53,7 +53,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
         return *this;
     for (int i = 0; i < 4; i++)
     {
-        if (other.inventory[i] != NULL)
+        if (other.inventory[i])
         {
             inventory[i] = other.inventory[i]->clone();
         }
@@ -67,10 +67,9 @@ void MateriaSource::learnMateria(AMateria* T)
     for (i = 0; i < 4; i++)
     {
         
-        if (inventory[i] == NULL)   
+        if (!inventory[i])   
         {
             inventory[i] = T;
-            std::cout << "-i- : " << i << " " << inventory[i] << std::endl;
             return ;
         }
         
@@ -83,7 +82,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
    for (int i = 0; i < 4; i++)
    {
-        if (inventory[i] != NULL && inventory[i]->getType() == type)
+        if (inventory[i] && inventory[i]->getType() == type)
         {
             return inventory[i]->clone();
         }
