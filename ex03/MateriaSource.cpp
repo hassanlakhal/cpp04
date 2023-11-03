@@ -6,20 +6,20 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:24:58 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 17:13:35 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:08:02 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"MateriaSource.hpp"
 
 int MateriaSource::ind = 0;
-AMateria *MateriaSource::inventoryDelete[] = {NULL};
+AMateria *MateriaSource::slotsDelete[] = {NULL};
 
 MateriaSource::MateriaSource()
 {
     for (int i = 0; i < 4; i++)
     {
-        inventory[i] = NULL;
+        slots[i] = NULL;
     }
 }
 
@@ -28,10 +28,10 @@ MateriaSource::~MateriaSource()
     
     for (int i = 0; i < 4; i++)
     {
-        if(inventory[i])
+        if(slots[i])
         {
-            delete inventory[i];
-            inventory[i] = NULL;
+            delete slots[i];
+            slots[i] = NULL;
         }        
     }
 }
@@ -40,9 +40,9 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (other.inventory[i])
+        if (other.slots[i])
         {
-            inventory[i] = other.inventory[i]->clone();
+            slots[i] = other.slots[i]->clone();
         }
     }
 }
@@ -53,9 +53,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
         return *this;
     for (int i = 0; i < 4; i++)
     {
-        if (other.inventory[i])
+        if (other.slots[i])
         {
-            inventory[i] = other.inventory[i]->clone();
+            slots[i] = other.slots[i]->clone();
         }
     }
     return *this;
@@ -67,14 +67,14 @@ void MateriaSource::learnMateria(AMateria* T)
     for (i = 0; i < 4; i++)
     {
         
-        if (!inventory[i])   
+        if (!slots[i])   
         {
-            inventory[i] = T;
+            slots[i] = T;
             return ;
         }
         
     }
-    inventoryDelete[MateriaSource::ind] = T;
+    slotsDelete[MateriaSource::ind] = T;
     MateriaSource::ind++;
 }
 
@@ -82,9 +82,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
    for (int i = 0; i < 4; i++)
    {
-        if (inventory[i] && inventory[i]->getType() == type)
+        if (slots[i] && slots[i]->getType() == type)
         {
-            return inventory[i]->clone();
+            return slots[i]->clone();
         }
    }
    return NULL;

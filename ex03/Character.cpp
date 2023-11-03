@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 18:39:33 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:21:40 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Character::Character()
 {
     for (int i = 0; i < 4; i++)
     {
-        inventory[i] = NULL;
+        slots[i] = NULL;
     }
 }
 
@@ -28,7 +28,7 @@ Character::Character(const std::string& name):name(name)
  
     for (int i = 0; i < 4; i++)
     {
-        inventory[i] = NULL;
+        slots[i] = NULL;
     } 
 }
 
@@ -36,10 +36,10 @@ Character::Character(const Character& other):name(other.name)
 {
     for (int i = 0; i < 4; i++)
     {
-       if (other.inventory[i]) 
-            this->inventory[i] = other.inventory[i]->clone();
+       if (other.slots[i]) 
+            this->slots[i] = other.slots[i]->clone();
        else
-         this->inventory[i] =  NULL;
+         this->slots[i] =  NULL;
     }
 }
 
@@ -50,14 +50,14 @@ Character& Character::operator=(const Character& other)
     name = other.name;
     for (int i = 0; i < 4; ++i)
     {
-        delete inventory[i];
+        delete slots[i];
     }
     for (int i = 0; i < 4; i++)
     {
-       if (other.inventory[i]) 
-            this->inventory[i] = other.inventory[i]->clone();
+       if (other.slots[i]) 
+            this->slots[i] = other.slots[i]->clone();
        else
-           this->inventory[i] = NULL;  
+           this->slots[i] = NULL;  
     }
     return *this;
 }
@@ -65,42 +65,42 @@ Character& Character::operator=(const Character& other)
 Character::~Character()
 {
     for (int i = 0; i < 4; ++i)
-        delete inventory[i];
+        delete slots[i];
     for (int i = 0; i < 4; ++i)
-        delete inventoryDelete[i];
+        delete slotsDelete[i];
 }
 
 void Character::equip(AMateria* m)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (!inventory[i])
+        if (!slots[i])
         {
-            inventory[i] = m;
+            slots[i] = m;
             return ;
         }
     }
     invDelete[Character::ind] = m;
     Character::ind++;
-    std::cout << "Full inventory\n";
+    std::cout << "Full slots\n";
 }
 
 void Character::unequip(int idx)
 {
-    if (idx >= 0 && idx < 4 && inventory[idx])
+    if (idx >= 0 && idx < 4 && slots[idx])
     {
-        inventoryDelete[idx] = inventory[idx];
-        inventory[idx] = NULL;
+        slotsDelete[idx] = slots[idx];
+        slots[idx] = NULL;
     }  
-    else if (idx >= 4 || idx < 0 || inventory[idx] == NULL)
+    else if (idx >= 4 || idx < 0 || slots[idx] == NULL)
         std::cout << "Materia not exist\n";
         
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx >= 0 && idx < 4 && inventory[idx])
-        inventory[idx]->use(target);
+    if (idx >= 0 && idx < 4 && slots[idx])
+        slots[idx]->use(target);
 }
 
 std::string const & Character::getName() const

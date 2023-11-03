@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:24:40 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 05:09:19 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/03 21:08:02 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ class MateriaSource: public IMateriaSource
 {
 private:
     static int ind;
-    AMateria *inventory[4];
-    static AMateria *inventoryDelete[];
+    AMateria *slots[4];
+    static AMateria *slotsDelete[];
 public:
     MateriaSource();
     MateriaSource(const MateriaSource& other);
