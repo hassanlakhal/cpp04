@@ -6,14 +6,11 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:24:58 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 21:08:02 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 03:11:25 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"MateriaSource.hpp"
-
-int MateriaSource::ind = 0;
-AMateria *MateriaSource::slotsDelete[] = {NULL};
 
 MateriaSource::MateriaSource()
 {
@@ -33,6 +30,14 @@ MateriaSource::~MateriaSource()
             delete slots[i];
             slots[i] = NULL;
         }        
+    }
+    const Node* current = &deleteObj.getHead();
+    while (current != nullptr)
+    {
+        Node* next = current->next;
+        delete static_cast<AMateria*>(current->data);
+        delete current;
+        current = next;
     }
 }
 
@@ -74,8 +79,7 @@ void MateriaSource::learnMateria(AMateria* T)
         }
         
     }
-    slotsDelete[MateriaSource::ind] = T;
-    MateriaSource::ind++;
+    deleteObj.insertNode((void *)T);
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

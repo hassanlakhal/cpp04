@@ -6,14 +6,13 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/03 21:21:40 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 03:19:32 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Character.hpp"
-
-int Character::ind = 0;
-AMateria *Character::invDelete[] = {NULL};
+// int Character::ind = 0;
+// AMateria *Character::invDelete[] = {NULL};
 
 Character::Character()
 {
@@ -65,9 +64,23 @@ Character& Character::operator=(const Character& other)
 Character::~Character()
 {
     for (int i = 0; i < 4; ++i)
+    {
         delete slots[i];
+        slots[i] = NULL;
+    }
     for (int i = 0; i < 4; ++i)
+    {
         delete slotsDelete[i];
+        slotsDelete[i] = NULL;
+    }
+    const Node* current = &deleteObj.getHead();
+    while (current != NULL)
+    {
+        Node* next = current->next;
+        delete static_cast<AMateria*>(current->data);
+        delete current;
+        current = next;
+    }
 }
 
 void Character::equip(AMateria* m)
@@ -80,8 +93,7 @@ void Character::equip(AMateria* m)
             return ;
         }
     }
-    invDelete[Character::ind] = m;
-    Character::ind++;
+    deleteObj.insertNode((void *)m);
     std::cout << "Full slots\n";
 }
 

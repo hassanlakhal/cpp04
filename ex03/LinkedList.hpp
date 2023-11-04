@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   LinkedList.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 17:02:12 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/04 03:21:44 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/11/03 22:22:42 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/11/04 03:11:51 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"AMateria.hpp"
+#ifndef LINKEDLIST_HPP
+#define LINKEDLIST_HPP
 
-class Ice:public AMateria
+#include"Node.hpp"
+
+class LinkedList
 {
-public:
-    Ice();
-    Ice(const Ice& other);
-    Ice& operator=(const Ice& other);
-    void setType(const std::string& type);
-    AMateria* clone() const;
-    void use(ICharacter& target);
-    ~Ice();
+    private:
+        Node *head;
+    public:
+        LinkedList();
+        ~LinkedList();
+        void insertNode(void *data);
+        const Node& getHead(void) const;
 };
+
+#endif
 
 

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Node.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 17:02:12 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/04 03:21:44 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/11/03 22:15:59 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/11/04 00:32:42 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"AMateria.hpp"
+#include"Node.hpp"
 
-class Ice:public AMateria
+Node::Node():data(0),next(NULL)
 {
-public:
-    Ice();
-    Ice(const Ice& other);
-    Ice& operator=(const Ice& other);
-    void setType(const std::string& type);
-    AMateria* clone() const;
-    void use(ICharacter& target);
-    ~Ice();
-};
+    
+}
 
+Node::Node(void* data):data(data),next(NULL)
+{
+    
+}
 
+Node::~Node()
+{
+    
+}
