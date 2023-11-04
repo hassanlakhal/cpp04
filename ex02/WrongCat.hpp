@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:28 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/29 00:51:58 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:27:51 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ class WrongCat:public WrongAnimal
     public:
         WrongCat();
         ~WrongCat();
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
         void makeSound() const ;
 };

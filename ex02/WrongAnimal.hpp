@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongA_animal.hpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 00:39:20 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 17:21:04 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ public:
     WrongAnimal();
     WrongAnimal(const std::string& type);
     const std::string& getType() const;
+    WrongAnimal(const WrongAnimal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
     void makeSound() const ;
     ~WrongAnimal();
 };
