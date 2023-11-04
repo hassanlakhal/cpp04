@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 22:21:21 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:54:27 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 
 class Dog:public Animal
 {
-private:
-    /* data */
-public:
-    Dog();
-    ~Dog();
-    void makeSound() const;
+    public:
+        Dog();
+        ~Dog();
+        Dog(const Dog& other);
+        Dog& operator=(const Dog& other);
+        void makeSound() const;
 };
 
 #endif

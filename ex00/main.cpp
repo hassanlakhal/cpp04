@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 22:09:10 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/29 00:36:11 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:52:17 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
     meta->makeSound();
     const WrongAnimal* test = new WrongAnimal();
     const WrongAnimal* test1 = new WrongCat();
-    std::cout << test1->getType() << std::endl;
+    // std::cout << test1->getType() << std::endl;
     test1->makeSound();
     test->makeSound();
 return 0;
