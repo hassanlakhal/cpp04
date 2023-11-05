@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 22:22:42 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/04 03:11:51 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/05 00:13:13 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class LinkedList
         LinkedList();
         ~LinkedList();
         void insertNode(void *data);
-        const Node& getHead(void) const;
+        Node& getHead(void) const;
+        void setHead(Node *set);
 };
 
 #endif

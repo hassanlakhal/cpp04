@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:24:58 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/04 03:11:25 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/05 03:57:36 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ MateriaSource::~MateriaSource()
         delete current;
         current = next;
     }
+    deleteObj.setHead(NULL);
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
@@ -68,16 +69,13 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 
 void MateriaSource::learnMateria(AMateria* T)
 {
-    int i;
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
-        
         if (!slots[i])   
         {
             slots[i] = T;
             return ;
         }
-        
     }
     deleteObj.insertNode((void *)T);
 }
