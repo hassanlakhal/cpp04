@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 16:53:20 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/04 01:32:14 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/06 06:42:20 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ class AMateria
 {
     protected:
         std::string type;
+        int refCount;
     public:
         AMateria(std::string const & type);
         AMateria();
+        void addRef();
+        void removeRef();
+        int getRef() const;
         AMateria(const AMateria& other);
         AMateria& operator=(const AMateria& other);
         virtual ~AMateria();

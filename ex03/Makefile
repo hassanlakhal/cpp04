@@ -6,17 +6,17 @@
 #    By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 16:56:57 by hlakhal-          #+#    #+#              #
-#    Updated: 2023/11/05 05:57:24 by hlakhal-         ###   ########.fr        #
+#    Updated: 2023/11/06 07:08:00 by hlakhal-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = A_animal
 
 SRC = main.cpp  AMateria.cpp  Cure.cpp Ice.cpp  Character.cpp MateriaSource.cpp \
-	Node.cpp LinkedList.cpp
+	
 
 HDR =  AMateria.hpp  Cure.hpp Ice.hpp Character.hpp  IMateriaSource.hpp MateriaSource.hpp \
-	Node.hpp LinkedList.hpp
+	
 
 CXXFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address 
 
