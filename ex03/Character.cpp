@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/06 07:18:16 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/06 07:26:51 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,15 @@ void Character::equip(AMateria* m)
             if (!slots[i]) 
             {
                 slots[i] = m;
-                m->addRef();
+                if (m)
+                    m->addRef();
                 return ;
             }
         }
     } 
     else 
     { 
-        if (m->getRef() == 0)
+        if (m && m->getRef() == 0)
             m->removeRef();
         std::cout << "Can not equip more than 4 Materia " << std::endl;     
     }
