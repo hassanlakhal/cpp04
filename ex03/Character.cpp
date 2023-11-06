@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 23:27:16 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/11/06 07:26:51 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/11/06 20:37:06 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,8 @@ void Character::equip(AMateria* m)
     int occupiedSlots = 0;
     for (int i = 0; i < 4; i++) 
     {
-        if (slots[i]) {
+        if (slots[i]) 
             occupiedSlots++;
-        }
     }
     if (occupiedSlots < 4) 
     {
@@ -96,7 +95,10 @@ void Character::equip(AMateria* m)
     else 
     { 
         if (m && m->getRef() == 0)
+        {
             m->removeRef();
+            m = NULL;
+        }
         std::cout << "Can not equip more than 4 Materia " << std::endl;     
     }
 }
